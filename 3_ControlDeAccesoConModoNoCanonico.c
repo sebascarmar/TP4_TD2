@@ -4,7 +4,7 @@
 #define FD_STDIN 0
 #define LENGTH_PSSW 5
 
-int main( void )
+int main( int argc, char *argv[] )
 {
   struct termios t_old, t_new;                              // Estructuras para atributos del teclado.
   char contra[LENGTH_PSSW+1] = {'8','3','3','8','A','\0'};  // Contraseña de LENGTH_PSSW carcateres (más el caracter NULL).
@@ -29,13 +29,16 @@ int main( void )
     contraCorrecta = 0;     // Al recorrer 'password' y comparar con 'contra', si vale LENGTH_PSSW entonces es válida la passwd ingresada.
 
     printf(" Ingrese su password de 5 dígitos: ");
-    while ( tecla!=10 ){    // Ingresar hasta oprimir enter. Parte de la simulacion del modo canónico.
-        tecla = getchar();
-        
-        if( tecla!=127 &&  tecla!=10 ) // Si no se presionan DEL ni ENTER, es verdadero.
+    while ( tecla!=10 )    // Ingresar hasta oprimir enter. Parte de la simulacion del modo canónico.
+    {
+      tecla = getchar();
+      
+      if( tecla!=10 ) // Si no se presiona ENTER es verdadero. Si se presiona ENTER, lo toma como un intento directamente.
+      {
+        if( tecla!=127 ) // Si NO se presiona DEL es verdadero.
         {
-          if( i<=(LENGTH_PSSW-1) && i==asteriscosImpresos)// 'i' no puede ser mayor al largo de la contra, y debe coincidir con los asteriscos 
-          {                                               //en pantalla.
+          if( i<=(LENGTH_PSSW-1) && i==asteriscosImpresos)// 'i' no puede ser mayor al largo de la contra, y debe coincidir con 
+          {                                               //los asteriscos en pantalla.
             password[i] = tecla;
             i++;
           }                   
@@ -43,7 +46,7 @@ int main( void )
           printf("*");
           asteriscosImpresos++;
           
-        }else                          // Si se presionan DEL o ENTER, es verdadero
+        }else            // Si SÍ se presiona DEL es verdadero.
         {
           if( asteriscosImpresos>0 ) // Solo borra caracteres en pantalla si fueron asteriscos impresos.
           {
@@ -53,7 +56,7 @@ int main( void )
             asteriscosImpresos--;
           }
         }
-        
+      } 
     }
     
     for(int j = 0 ; j<LENGTH_PSSW ; j++) // Analiza si la contraseña ingresada es correcta.
