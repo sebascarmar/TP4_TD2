@@ -2,7 +2,7 @@
 .arm
 .global retardo
 
-; R0: a
+// R0: a
 
 retardo:
   loop:
