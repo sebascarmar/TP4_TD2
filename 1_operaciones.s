@@ -2,11 +2,11 @@
 .arm
 .global operaciones
 
-;R0: operando1 / R1: operando2 / R2: operación 0 -> suma 
-;                                              1 -> resta
-;                                              2 -> and lógica
-;                                              3 -> or lógica
-;                                              X -> suma por default
+//;R0: operando1 / R1: operando2 / R2: operación 0 -> suma 
+//;                                              1 -> resta
+//;                                              2 -> and lógica
+//;                                              3 -> or lógica
+//;                                              X -> suma por default
 
 operaciones:
     cmp r2, #0
