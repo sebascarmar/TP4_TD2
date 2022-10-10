@@ -49,7 +49,7 @@ int main( int argc, char *argv[] )
     {
       valorLectura = digitalRead( switches[i] ); // Lee el switch.
       digitalWrite( leds[i], valorLectura );     // Escribe en el led lo leído en el switch.
-      detectaTecla = read( FD_STDIN, buf, 1 );  // read se ejecuta hasta que pasen TIME [dseg] o que se ingrese un caracter. Si no 
+      detectaTecla = read( FD_STDIN, buf, 1 );  // read se ejecuta hasta que pasen VTIME [dseg] o que se ingrese un caracter. Si no 
     }                                           //se ingresa nada, retorna 0 (ver >man termios).
                                                 //Prototipo: ssize_t read(int fd, void *buf, size_t count);
   }
