@@ -45,7 +45,7 @@ int main( int argc, char *argv[] )
  /***********************Bucle que termina cuando se aprieta una tecla********************************/
   while( detectaTecla == 0 )
   {
-    for( int i = 0 ; ( detectaTecla == 0 )&&( i<4 ) ; i++ ) 
+    for( int i = 0 ; ( detectaTecla == 0 )&&( i<4 ) ; i++ ) // Si detecta tecla, sale. También sale si recorre todo el array.
     {
       valorLectura = digitalRead( switches[i] ); // Lee el switch.
       digitalWrite( leds[i], valorLectura );     // Escribe en el led lo leído en el switch.
