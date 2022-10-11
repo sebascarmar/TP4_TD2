@@ -51,9 +51,9 @@ int main( int argc, char *argv[] )
           if( asteriscosImpresos>0 ) // Solo borra caracteres en pantalla si fueron asteriscos impresos.
           {
             printf("\b \b"); // Imprime un backspace, sobreescribe con un espacio, y vuelve el cursor hacia atrás con otro backspace.
+            asteriscosImpresos--;
             if( i>0 )
               i--;       
-            asteriscosImpresos--;
           }
         }
       } 
@@ -67,7 +67,7 @@ int main( int argc, char *argv[] )
     
     if( contraCorrecta == 5 ){
       printf("\n Bienvenido al sistema\n");
-      numIntentos = 3; 
+      numIntentos = 3; // Puede ser 2, pero para mayor claridad se pone el 3.
     }else
       printf("\n Contraseña incorrecta\n");
     
