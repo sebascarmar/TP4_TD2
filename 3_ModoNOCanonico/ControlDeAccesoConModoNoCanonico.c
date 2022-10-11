@@ -52,7 +52,7 @@ int main( int argc, char *argv[] )
           {
             printf("\b \b"); // Imprime un backspace, sobreescribe con un espacio, y vuelve el cursor hacia atrás con otro backspace.
             asteriscosImpresos--;
-            if( i>0 )
+            if( i>0 ) // Se puede agregar que borre solo cuando asteriscosImpresos vale 4 o menos.
               i--;       
           }
         }
