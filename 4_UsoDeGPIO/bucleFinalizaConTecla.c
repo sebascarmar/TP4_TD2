@@ -22,7 +22,7 @@ int main( int argc, char *argv[] )
 
   t_new.c_lflag &= ~(ECHO | ICANON);  // Anula entrada canónica y eco.
   t_new.c_cc[VMIN] = 0;               // No espera por ningún caracter ingresado por telcado.
-  t_new.c_cc[VTIME] = 10;             // Solo espera 10ds a que se ingrese algo, luego sigue.
+  t_new.c_cc[VTIME] = 0;             // No espera ningún tiempo a que se ingrese algo, luego sigue.
 
   tcsetattr(FD_STDIN,TCSANOW,&t_new); // Actualiza con los valores nuevos de la config (TCSANOW = activa la 
                                       //modificación inmediatamente).
