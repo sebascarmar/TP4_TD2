@@ -65,7 +65,7 @@ int main( int argc, char *argv[] )
       for( int j = 0 ; ( detectaTecla == 0 )&&( j<8 ) ; j++ )
       {
         digitalWrite( leds[j], laCarrera[i][j] ); // Escribe en el led lo leído en el switch.
-        usleep(100000);
+        usleep(50000);
         detectaTecla = read( FD_STDIN, buf, 1 );  // read se ejecuta hasta que pasen VTIME [dseg] o que se ingrese un caracter. Si no 
       }
     }                                           //se ingresa nada, retorna 0 (ver >man termios).
