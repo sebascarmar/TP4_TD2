@@ -71,7 +71,7 @@ void pioInit( )
     exit(EXIT_FAILURE);
   }
 
-  gpio = (volatile unsigned *)reg_map;
+  gpio = (volatile unsigned *)reg_map; // Asigna mediante un cast la región de memoria mapeada y configurada a 'gpio'.
   close(mem_fd);
 }
 
