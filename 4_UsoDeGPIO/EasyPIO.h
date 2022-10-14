@@ -7,7 +7,8 @@
 #include <sys/mman.h>
 #include <stdio.h>
 #include <fcntl.h>
-#include <unistd.h>
+#include <unistd.h>   // Posee las funciones para manipular archvivos open()/close().
+#include <stdlib.h>   // Posee la función exit().
 
 /*##################################################################################################*/
 /*##                                    Constantes                                                ##*/
