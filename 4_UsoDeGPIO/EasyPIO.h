@@ -51,6 +51,12 @@ void pioInit( )
   void *reg_map;
 
   mem_fd = open("/dev/mem", O_RDWR | O_SYNC); // /dev/mem es un pseudo_driver para acceso a memoria en Linux.
+  if( mem_fd < 0)                             // Verifica si se pudo abrir el archivo. Si no, aborta. 
+  {
+    printf("Error al abrir /dev/mem.\n");
+    exit(EXIT_FAILURE);
+  }
+
   reg_map = mmap(
                  NULL,                        // Dirección desde la cual se inicia el mapeo local (null=no importa).
                  BLOCK_SIZE,                  // Tamaño del bloque de memoria mapeado (4kB).
