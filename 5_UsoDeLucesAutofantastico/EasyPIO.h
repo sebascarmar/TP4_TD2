@@ -7,7 +7,8 @@
 #include <sys/mman.h>
 #include <stdio.h>
 #include <fcntl.h>
-#include <unistd.h>
+#include <unistd.h>   // Posee las funciones para manipular archvivos open()/close().
+#include <stdlib.h>   // Posee la función exit().
 
 /*##################################################################################################*/
 /*##                                    Constantes                                                ##*/
@@ -50,6 +51,12 @@ void pioInit( )
   void *reg_map;
 
   mem_fd = open("/dev/mem", O_RDWR | O_SYNC); // /dev/mem es un pseudo_driver para acceso a memoria en Linux.
+  if( mem_fd < 0)                             // Verifica si se pudo abrir el archivo. Si no, aborta. 
+  {
+    printf("Error al abrir /dev/mem.\n");
+    exit(EXIT_FAILURE);
+  }
+
   reg_map = mmap(
                  NULL,                        // Dirección desde la cual se inicia el mapeo local (null=no importa).
                  BLOCK_SIZE,                  // Tamaño del bloque de memoria mapeado (4kB).
@@ -57,8 +64,14 @@ void pioInit( )
                  MAP_SHARED,                  // Acceso no exclusivo a esta memoria.
                  mem_fd,                      // Puntero a /dev/mem.
                  GPIO_BASE);                  // Offset al periférico GPIO.
+  if (reg_map == MAP_FAILED)                  // Verifica si se pudo realiar el mapeo. Si no, aborta.
+  {
+    printf("Error al  mapear GPIO  %d\n", (int)reg_map);
+    close(mem_fd);
+    exit(EXIT_FAILURE);
+  }
 
-  gpio = (volatile unsigned *)reg_map;
+  gpio = (volatile unsigned *)reg_map; // Asigna mediante un cast la región de memoria mapeada y configurada a 'gpio'.
   close(mem_fd);
 }
 
