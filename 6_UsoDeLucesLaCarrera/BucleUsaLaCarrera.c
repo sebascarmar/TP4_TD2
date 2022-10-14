@@ -73,6 +73,9 @@ int main( int argc, char *argv[] )
   
   }
   
+  for( int i = 0 ; i < 8 ; i++ ) // Apaga todos los leds antes de salir del programa.
+      digitalWrite( leds[i], 0 );
+
 
   /*********************************Seteo del modo canónico*******************************************/
   tcsetattr(FD_STDIN, TCSANOW, &t_old); // Actualiza los atributos del teclado con los valores previos.
