@@ -52,7 +52,7 @@ int main( int argc, char *argv[] )
     }                                           //se ingresa nada, retorna 0 (ver >man termios).
                                                 //Prototipo: ssize_t read(int fd, void *buf, size_t count);
   
-  for( int i = 8 ; ( detectaTecla == 0 )&&( i>0 ) ; i-- ) // Si detecta tecla, sale. También sale si recorre todo el array.
+    for( int i = 6 ; ( detectaTecla == 0 )&&( i>0 ) ; i-- ) // Si detecta tecla, sale. También sale si recorre todo el array.
     {
 
       digitalWrite( leds[i], 1 );// Escribe en el led lo leído en el switch.
