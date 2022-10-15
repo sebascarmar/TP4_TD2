@@ -16,7 +16,7 @@ int main( int argc, char *argv[] )
 
   /*********************Seteo del modo NO canónico NO bloqueante********************/
   tcgetattr( FD_STDIN, &t_old );        // Lee atributos del teclado.
-  t_new = t_old;                      // Guarda los atributos originales.
+  t_new = t_old;                        // Guarda los atributos originales.
 
   t_new.c_lflag &= ~(ECHO | ICANON);  // Anula entrada canónica y eco.
   t_new.c_cc[VMIN] = 0;               // No espera que ingrese ningún caracter.
