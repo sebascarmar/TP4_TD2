@@ -65,7 +65,7 @@ void pioInit( )
                  MAP_SHARED,                  // Acceso no exclusivo a esta memoria.
                  mem_fd,                      // Puntero a /dev/mem.
                  GPIO_BASE);                  // Offset al periférico GPIO.
-  if (reg_map == MAP_FAILED)                  // Verifica si se pudo realiar el mapeo.
+  if (reg_map == MAP_FAILED)                  // Verifica si se pudo realizar el mapeo.
   {
     printf("Error al  mapear GPIO  %d\n", (int)reg_map);
     close(mem_fd);
