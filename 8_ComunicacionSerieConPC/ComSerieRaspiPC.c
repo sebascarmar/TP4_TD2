@@ -29,7 +29,9 @@ int main( int argc, char *argv[] )
 
 
 /**************Inicia lectura y escritura mediante el puerto serie******************/
-  printf (" ------Comunicación serie (finaliza con caracter '!')------\n") ;
+  printf(" --------------------------------------\n");
+  printf(" -Comunicación serie (termina con '!')-\n");
+  printf(" --------------------------------------\n");
   while( datoRecibido != '!' )
   {
     if( serialDataAvail(puertoSerial) )             // Retorna el número de caracteres
