@@ -53,22 +53,22 @@ int main( int argc, char *argv[] )
   while( detectaTecla == 0 )
   {
     // Lectura del canal ADC0 (potenciómetro).
-    wiringPiI2CReadReg8(fd, A0); // Indica el registro a leer.
+    wiringPiI2CReadReg8(fd, A0); // Activa la conversión.
     valorADC = wiringPiI2CReadReg8(fd, A0);// Lectura del valor.
     printf("Voltaje en el potenciómetro = %.3f V\n", (float) valorADC*3.3/255);
     
     // Lectura del canal ADC1 (fotoresistor).
-    wiringPiI2CReadReg8(fd, A1); // Indica el registro a leer.
+    wiringPiI2CReadReg8(fd, A1); // Activa la conversión.
     valorADC = wiringPiI2CReadReg8(fd, A1); // Lectura del valor.
     printf("Voltaje en el fotoresistor  = %.3f V\n", (float) valorADC*3.3/255);
     
     // Lectura del canal ADC2 (termistor).
-    wiringPiI2CReadReg8(fd, A2); // Indica el registro a leer.
+    wiringPiI2CReadReg8(fd, A2); // Activa la conversión.
     valorADC = wiringPiI2CReadReg8(fd, A2); // Lectura del valor.
     printf("Voltaje en el termistor     = %.3f V\n", (float) valorADC*3.3/255);
     		  
     // Lectura del canal ADC3 (puesto a GND).
-    wiringPiI2CReadReg8(fd, A3); // Indica el registro a leer.
+    wiringPiI2CReadReg8(fd, A3); // Activa la conversión.
     valorADC = wiringPiI2CReadReg8(fd, A3); // Lectura del valor.
     printf("Voltaje en el cuarto canal  = %.3f V\n\n", (float) valorADC*3.3/255);
     
