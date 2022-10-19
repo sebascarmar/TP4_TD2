@@ -65,7 +65,7 @@ void pioInit( )
                  MAP_SHARED,                  // Acceso no exclusivo a esta memoria.
                  mem_fd,                      // Puntero a /dev/mem.
                  GPIO_BASE);                  // Offset al periférico GPIO.
-  if (reg_map == MAP_FAILED)                  // Verifica si se pudo realiar el mapeo.
+  if (reg_map == MAP_FAILED)                  // Verifica si se pudo realizar el mapeo.
   {
     printf("Error al  mapear GPIO  %d\n", (int)reg_map);
     close(mem_fd);
@@ -93,8 +93,8 @@ void pinMode( int pin, int function ) // Los registros GPFSEL determinan la fun.
 /*-------------------------------------------------------------------------------*/ 
 void digitalWrite( int pin, int val )
 {
-  int reg    = pin/10;     // 10 GPIO por registro (es decir, elige el registro).
-  int offset = (pin%10)*3; // 3 pines para cada GPIO (selecciona los pines correspondientes).
+  int reg    = pin/32;     // 10 GPIO por registro (es decir, elige el registro).
+  int offset = pin%32; // 3 pines para cada GPIO (selecciona los pines correspondientes).
 
   if(val)
     GPSET[reg] = 1 << offset; // Escribe si es HIGH.
