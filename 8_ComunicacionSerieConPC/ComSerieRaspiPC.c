@@ -3,12 +3,13 @@
 #include <errno.h>
 #include <wiringPi.h>
 #include <wiringSerial.h>
+#include <string.h>
 
 int main( int argc, char *argv[] )
 {
   int puertoSerial ;    // Almacena el descriptor de archivos del puerto serie.
   char datoRecibido;    // Almacena lo recibido por el puerte serie (byte a byte),
-  char avisaFin[] = "\nComunicacion finalizada\n";
+  char avisaFin[] = "Comunicacion Finalizada";
 
 
 /***********************Apertura del puerto serie************************************/
@@ -39,15 +40,13 @@ int main( int argc, char *argv[] )
       datoRecibido = serialGetchar( puertoSerial ); // Retorna el siguiente caracter 
                                                     //disponible en el dispositivo serial.	
       printf ("%c", datoRecibido);                  // Imprime en pantalla el carcater.
-      if( datoRecibido != '!' )
-        serialPutchar( puertoSerial, datoRecibido );// Envía el caracter leído por
                                                     //el puerto serie.
     }
   }
 
 
 /************Envía cadena de aviso de finalización por puerto serie*****************/
-  for( int i = 0 ; avisaFin[i] != '\0' ; i++ )
+  for( int i = 0 ; i <= strlen(avisaFin) ; i++ )
   {
       serialPutchar( puertoSerial, avisaFin[i] );
   }
