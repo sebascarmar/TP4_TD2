@@ -1,6 +1,3 @@
-//Compilar: gcc -Wall send.c termset.c -o send */
-//Ejecutar: ./send */  
-
 # include <stdio.h>  
 # include <fcntl.h>  
 # include <unistd.h> 
