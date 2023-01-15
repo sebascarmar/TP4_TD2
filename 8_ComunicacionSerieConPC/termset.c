@@ -2,7 +2,7 @@
 #include "termset.h"
 
 
-int termset ( int fd, int baudrate, struct termios ttyold, struct termios ttynew )
+int termset ( int fd, int baudrate, struct termios *ttyold, struct termios *ttynew )
 {
 switch ( baudrate )// establece la velocidad de transmision
 {
