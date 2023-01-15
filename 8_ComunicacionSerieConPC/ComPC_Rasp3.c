@@ -2,7 +2,7 @@
 # include <fcntl.h>  
 # include <unistd.h> 
 # include "termset.h"
-
+#include <termios.h>
 
 int main ( void )
 {
