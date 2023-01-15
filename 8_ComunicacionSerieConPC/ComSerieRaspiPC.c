@@ -7,25 +7,25 @@
 
 int main( int argc, char *argv[] )
 {
-  int puertoSerial ;    // Almacena el descriptor de archivos del puerto serie.
+  int puertoSerial;     // Almacena el descriptor de archivos del puerto serie.
   char datoRecibido;    // Almacena lo recibido por el puerte serie (byte a byte),
   char avisaFin[] = "Comunicacion Finalizada";
 
 
 /***********************Apertura del puerto serie************************************/
-  puertoSerial = serialOpen ("/dev/ttyS0", 9600);
+  puertoSerial = serialOpen("/dev/ttyS0", 9600);
   if( puertoSerial < 0 )
   {
-    fprintf (stderr, "Error al abrir \\dev\\ttyS0: %s\n", strerror (errno)) ;
-    return 1 ;
+    fprintf(stderr, "Error al abrir \\dev\\ttyS0: %s\n", strerror(errno));
+    return 1;
   }
 
 
 /****************************Mapeo de pines****************************************/
   if ( wiringPiSetup() == -1 ) // Inicializa los pines siguiendo el esquema de WiringPi.
   {
-    fprintf (stdout, "Error al inicializar wirinfPi: %s\n", strerror (errno)) ;
-    return 1 ;
+    fprintf (stdout, "Error al inicializar wirinfPi: %s\n", strerror(errno));
+    return 1;
   }
 
 
@@ -39,7 +39,7 @@ int main( int argc, char *argv[] )
     {                                               //disponible para leer.
       datoRecibido = serialGetchar( puertoSerial ); // Retorna el siguiente caracter 
                                                     //disponible en el dispositivo serial.	
-      printf ("%c", datoRecibido);                  // Imprime en pantalla el carcater.
+      printf ("%c", datoRecibido);                  // Imprime en pantalla el caracter.
                                                     //el puerto serie.
     }
   }
