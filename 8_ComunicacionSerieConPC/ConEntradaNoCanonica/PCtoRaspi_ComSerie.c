@@ -12,7 +12,6 @@ int main( int argc, char *argv[] )
 {  
   struct termios t_old, t_oldUART, t_new, t_newUART; // Estructuras para atributos del teclado.
   int fdUART;                           // Descriptor de archivo de la UART. 
-  int detectaTecla;                     // Almacena lo que retorna la función read().
   char buf[1]= {'\0'};                  // Almacena el caracter leído por read().
 
 
@@ -96,7 +95,7 @@ int main( int argc, char *argv[] )
                                         //con los valores previos.
 	
   if( close(fdUART)==-1 )
-      printf("%d\n", detectaTecla);
+    printf("Error al cerrar el puerto serial\n");
 
   return 0;
 }
