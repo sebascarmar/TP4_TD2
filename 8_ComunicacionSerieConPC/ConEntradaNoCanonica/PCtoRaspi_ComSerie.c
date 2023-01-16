@@ -22,7 +22,7 @@ int main( int argc, char *argv[] )
     fprintf( stderr, "ERROR: abriendo el archivo %s. \n" , argv[1] );
     return -1;
   }
-  /*********************Seteo del modo NO canónico NO bloqueante********************/
+  /**********Seteo del modo NO canónico NO bloqueante en la ENTRADA ESTANDAR*********/
   tcgetattr( FD_STDIN, &t_old );        // Lee atributos del teclado.
   t_new = t_old;                        // Guarda los atributos originales.
 
