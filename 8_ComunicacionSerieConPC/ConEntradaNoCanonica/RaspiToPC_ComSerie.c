@@ -43,7 +43,7 @@ int main( int argc, char *argv[] )
                                                     //el puerto serie.
     }
   }
-
+  delay(1); // Sin esto la PC no lee el 1er char de la cadena a enviar.
 
 /************Envía cadena de aviso de finalización por puerto serie*****************/
   for( int i = 0 ; i <= strlen(avisaFin) ; i++ )
