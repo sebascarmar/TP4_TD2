@@ -1,6 +1,5 @@
 # TP4_TD2
 
-antes de iniciar a trabajar tirarme los huevos
 
 git status // me tira el estado actual del repositorio local respecto del index
 
