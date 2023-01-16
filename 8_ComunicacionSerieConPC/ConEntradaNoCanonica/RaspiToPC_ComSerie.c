@@ -31,7 +31,7 @@ int main( int argc, char *argv[] )
 
 /**************Inicia lectura y escritura mediante el puerto serie******************/
   printf(" --------------------------------------\n");
-  printf(" -Comunicación serie (termina con '!')-\n");
+  printf(" - Com. serie (termina al recibir '!')-\n");
   printf(" --------------------------------------\n");
   while( datoRecibido != '!' )
   {
